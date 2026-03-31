@@ -19,17 +19,19 @@ HIGH	HIGH	Brake (motor locked)
 The same logic applies to IN3 / IN4 for Motor B.
 > **Note:** ENA/ENB must have a non-zero PWM value for the motor to actually move, even if the direction pins are set correctly.
 ---
-Wiring
-L298N Pin	ESP32 Pin	Notes
-ENA	GPIO 18	PWM speed control, Motor A
-IN1	GPIO 19	Direction, Motor A
-IN2	GPIO 21	Direction, Motor A
-ENB	GPIO 14	PWM speed control, Motor B
-IN3	GPIO 26	Direction, Motor B
-IN4	GPIO 27	Direction, Motor B
-GND	GND	Common ground
-+12V	Motor supply	7–35V DC motor power
-+5V (out)	3.3V via regulator / 5V pin	See note below
+## Wiring
+
+| L298N Pin | ESP32 Pin                         | Notes                                 |
+|----------|----------------------------------|---------------------------------------|
+| ENA      | GPIO 18                          | PWM speed control, Motor A            |
+| IN1      | GPIO 19                          | Direction, Motor A                    |
+| IN2      | GPIO 21                          | Direction, Motor A                    |
+| ENB      | GPIO 14                          | PWM speed control, Motor B            |
+| IN3      | GPIO 26                          | Direction, Motor B                    |
+| IN4      | GPIO 27                          | Direction, Motor B                    |
+| GND      | GND                              | Common ground                         |
+| +12V     | Motor supply                     | 7–35V DC motor power                  |
+| +5V (out)| 3.3V via regulator / 5V pin      | See note below                        |
 ⚡ Powering the ESP32 from the L298N
 The L298N has an onboard 5V regulator that outputs 5V on its +5V pin (when the jumper is in place). This can be used to power the ESP32 directly via its VIN pin, removing the need for a separate USB or power supply for the microcontroller. Just make sure the motor supply voltage is within the regulator's supported range (typically up to ~35V, and at least ~7V for the regulator to output a stable 5V).
 ---
