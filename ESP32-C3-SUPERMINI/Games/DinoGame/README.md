@@ -31,6 +31,29 @@ A simple **Dino game** for the **ESP32-C3-SUPERMINI**, designed to run on a smal
 | 3.3V           | VCC of display |
 | GND            | GND of display and button |
 
+```mermaid
+flowchart LR
+    ESP[ESP32-C3-SMINI]
+
+    BTN[Jump Button]
+    DISP[OLED Display (I2C)]
+
+    ESP -->|GPIO0| BTN
+    BTN -->|Pressed → GND| GND[(GND)]
+
+    ESP -->|GPIO4 (SDA)| DISP
+    ESP -->|GPIO5 (SCL)| DISP
+
+    ESP -->|3.3V| DISP
+    ESP -->|GND| DISP
+
+    style ESP fill:#ffcc00,stroke:#333,stroke-width:2px
+    style BTN fill:#66ccff,stroke:#333
+    style DISP fill:#ccffcc,stroke:#333
+    style GND fill:#dddddd,stroke:#333
+```
+
+
 > **Note:** The jump button uses `INPUT_PULLUP`. Pressing the button should connect it to GND.  
 
 ---
