@@ -33,24 +33,22 @@ A simple **Dino game** for the **ESP32-C3-SUPERMINI**, designed to run on a smal
 
 ```mermaid
 flowchart LR
-    ESP[ESP32-C3-SMINI]
-
     BTN[Jump Button]
-    DISP[OLED Display (I2C)]
+    ESP[**ESP32-C3-SMINI**]
+    DISP[OLED Display]
 
-    ESP -->|GPIO0| BTN
-    BTN -->|Pressed → GND| GND[(GND)]
+    %% Left side (Button)
+    BTN -->|GPIO0| ESP
+    BTN -->|GND| ESP
 
-    ESP -->|GPIO4 (SDA)| DISP
-    ESP -->|GPIO5 (SCL)| DISP
-
+    %% Right side (Display)
+    ESP -->|GPIO4 SDA| DISP
+    ESP -->|GPIO5 SCL| DISP
     ESP -->|3.3V| DISP
     ESP -->|GND| DISP
 
-    style ESP fill:#ffcc00,stroke:#333,stroke-width:2px
-    style BTN fill:#66ccff,stroke:#333
-    style DISP fill:#ccffcc,stroke:#333
-    style GND fill:#dddddd,stroke:#333
+    %% Style the ESP to be a square and bold
+    style ESP fill:#004d04,stroke:#333,stroke-width:3px,stroke-dasharray: 5 5,rx:0,ry:0
 ```
 
 
