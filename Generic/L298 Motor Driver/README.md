@@ -44,10 +44,8 @@ IN3 / IN4 — Direction control for Motor B
 ⚡ Powering the ESP32 from the L298N
 The L298N has an onboard 5V regulator that outputs 5V on its +5V pin (when the jumper is in place). This can be used to power the ESP32 directly via its VIN pin, removing the need for a separate USB or power supply for the microcontroller. Just make sure the motor supply voltage is within the regulator's supported range (typically up to ~35V, and at least ~7V for the regulator to output a stable 5V).
 ---
-Code Explained
-```cpp
-// ESP32 L298N Motor Control — using LEDC for PWM
-```
+## Code Explained:
+
 Pin definitions at the top assign GPIO numbers to each L298N control pin for both motors.
 PWM config sets up a 2000 Hz PWM signal with 8-bit resolution (values 0–255) — this is fed into ENA and ENB to control motor speed.
 In `setup()`:
